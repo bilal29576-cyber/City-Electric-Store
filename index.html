@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Electric Store - Islamabad</title>
+    <meta name="description" content="City Electric Store - Best quality products, wires, fans, switches & industrial  equipments in Islamabad.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="assets/logo.jpg">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            background-color: rgb(18, 158, 111);
+            color: rgb(215, 208, 208);
+            display: flex;
+            padding: 1%;
+            margin-top: 2%;
+            border-radius: 2ch;
+            animation: slideDown 1s ease-out;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .ul {
+            display: flex;
+            list-style-type: none;
+            font-size: x-large;
+            padding-left: 40%;
+            margin: 0;
+        }
+
+        .ul li {
+            padding: 3%;
+        }
+
+        .ul li a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: yellow;
+            transition: width 0.3s ease;
+        }
+
+        .ul li a:hover {
+            color: yellow;
+        }
+
+        .ul li a:hover::after {
+            width: 100%;
+        }
+
+        .heading {
+            font-size: xx-large;
+            text-decoration: underline;
+            color: rgb(215, 208, 208);
+            animation: slideIn 10s ease-in-out;
+        }
+
+        .bdy {
+            background-color: cadetblue;
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 2%;
+        }
+
+        .txt {
+            top: 60%;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            font-size: 700%;
+            text-align: center;
+            color: whitesmoke;
+        }
+
+        .word {
+            opacity: 0;
+            display: block;
+            animation: fadeIn 3s forwards;
+            text-shadow: 5px 5px 0 black, -5px -5px 0 black, 5px -5px 0 black, -5px 5px 0 black;
+        }
+
+        .word:nth-child(1) { animation-delay: 1s; }
+        .word:nth-child(2) { animation-delay: 2s; }
+        .word:nth-child(3) { animation-delay: 2.5s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .main {
+            background-color: rgb(18, 158, 111);
+            color: rgb(215, 208, 208);
+            padding: 1%;
+            margin-top: 2%;
+            border-radius: 2ch;
+        }
+
+        .images {
+            width: 30%;
+            height: 300px;
+            padding: 1%;
+            margin: 3px;
+            border-radius: 5px;
+            background-color: rgb(40, 215, 157);
+            object-fit: cover;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .images:hover {
+            transform: scale(1.2);
+            z-index: 10;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+
+        .ftr {
+            background-color: rgb(18, 158, 111);
+            padding: 1%;
+            margin: 1%;
+            border-radius: 2ch;
+        }
+
+        .hdg {
+            text-align: center;
+            text-decoration: underline;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .para {
+            font-size: 12px;
+            line-height: 1.4;
+            text-align: center;
+            margin: 0 15px;
+            background-color: rgb(41, 223, 162);
+            padding: 5%;
+            border-radius: 5px;
+        }
+
+        .location {
+            margin: 2%;
+            border-radius: 5px;
+            width: 80%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sect {
+            background-color: rgb(16, 162, 113);
+            padding: 2%;
+            margin: 2%;
+            border-radius: 2ch;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.9);
+            justify-content:center;
+            align-items:center;
+            z-index:1000;
+        }
+
+        #lightbox img {
+            max-width:90%;
+            max-height:90%;
+            border-radius:10px;
+        }
+
+        /* -------- Responsive for mobile -------- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .heading {
+                font-size: x-large;
+                text-align: center;
+            }
+
+            .ul {
+                padding-left: 0;
+                flex-direction: column;
+                font-size: large;
+            }
+
+            .ul li {
+                padding: 5px 0;
+            }
+
+            .images {
+                width: 90%;
+                height: auto;
+                margin: 5px auto;
+                display: block;
+            }
+
+            .txt {
+                font-size: 15vw;
+                top: 80%;
+            }
+
+            .location {
+                width: 95%;
+            }
+
+            .para {
+                font-size: 14px;
+                padding: 3%;
+            }
+
+            .sect {
+                padding: 2%;
+                margin: 1%;
+            }
+        }
+    </style>
+</head>
+<body class="bdy">
+    <div class="navbar">
+        <img src="assets/logo.jpg" alt="" style="height: 90px;padding: 2%;border-radius: 4ch;">
+        <h1 class="heading">CITY ELECTRIC <br> STORE</h1>
+        <ul class="ul">
+            <li><a href="index.html">🏠Home</a></li>
+            <li><a href="#section"> 🛒 Products</a></li>
+            <li><a href="#About"> ℹ️ About</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <img src="assets/Screenshot (1).png" alt="" style="filter: blur(5px);">
+        <div class="txt">
+            <span class="word">CITY</span>
+            <span class="word">ELECTRIC</span>
+            <span class="word">STORE</span>
+        </div>
+    </div>
+    
+    <main class="main">
+        <h1 style="text-decoration: underline;text-align: center;color: black;font-family: 'Courier New', Courier, monospace;">SERVICES</h1>
+        <div>
+            <img src="assets/images (001).jfif" alt="" class="images">
+            <img src="assets/images (02).jfif" alt="" class="images">   
+            <img src="assets/images (1).jfif" alt="" class="images"><br>   
+            <img src="assets/images (4).jfif" alt="" class="images">   
+            <img src="assets/images000.webp" alt="" class="images">
+            <img src="assets/images.jfif" alt="" class="images">
+        </div>
+    </main>   
+
+    <section id="section" class="sect">
+        <h2 class="hdg">PRODUCTS</h2>
+        <div class="pics">
+            <img src="assets/cables.pak.jfif" alt="" class="images">
+            <img src="assets/bracket=prod.jpg" alt="" class="images">
+            <img src="assets/breker=prod.webp" alt="" class="images">
+            <img src="assets/bulb=prod.png" alt="" class="images">
+            <img src="assets/cable=products.jfif" alt="" class="images">
+            <img src="assets/fan=products.jpg" alt="" class="images">
+            <img src="assets/heat=prod.jpg" alt="" class="images">
+            <img src="assets/heater=prod.jfif" alt="" class="images">
+            <img src="assets/osaka-smd=prod.webp" alt="" class="images">
+            <img src="assets/prime=products.jfif" alt="" class="images"> 
+            <img src="assets/tj-allure-black-4-gang-switch=products.jpg" alt="" class="images">
+            <img src="assets/tj=products.jfif" alt="" class="images"> 
+        </div>
+    </section>
+
+    <footer id="About" class="ftr">
+        <h2 class="hdg">ABOUT US</h2>
+        <p class="para"> 
+            At <b>CITY ELECTRIC STORE</b>, we believe electricity powers life — and we make sure 
+            you get the best quality products to keep your homes and businesses running smoothly.  
+            <br><br>
+            For more than <b>20 years</b>, we have been serving our customers with a wide range of 
+            trusted electrical items including switches, wires, fans, lights, breakers, and 
+            industrial equipment.  
+            <br><br>
+            ✅ <b>Top Quality Products</b> from reliable brands  
+            ✅ <b>Affordable Prices</b> with guaranteed satisfaction  
+            ✅ <b>Expert Guidance</b> to help you choose the right products  
+            <br><br>
+            Whether you are building a new home, upgrading your office, or maintaining 
+            industrial equipment, <b>CITY ELECTRIC STORE</b> is your trusted partner 
+            for all electrical needs. ⚡
+        </p>
+        <h2 class="hdg">LOCATION</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.548205865444!2d73.15008237440736!3d33.565112943297365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfed2cd4a20c91%3A0xe677ba8899959956!2sCity%20Electric%20Store!5e0!3m2!1sen!2s!4v1755531690576!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="location"></iframe>
+        <h2 class="hdg">CONTACT US</h2>
+        <p style="font-size: 18px; line-height: 1.6; text-align:center; background-color:rgb(41, 223, 162); padding:3%; border-radius:5px; margin:15px;">
+             📞 Phone: +92 515738696 <br>
+             📍 Address: H583+23V, Soan Ave, Soan Gardens Block D Islamabad, Pakistan <br>
+             🕒 Timings: Mon-Sun (9:00 AM – 9:00 PM)
+        </p>
+    </footer>
+
+    <p style="text-align: center;">© cityelectricstore - All Rights Reserved</p>
+
+    
+    <div id="lightbox">
+        <img id="lightbox-img" src="">
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.images');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
