@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bilal29576-cyber.github.io/city.electric.store/sitemap.xml
